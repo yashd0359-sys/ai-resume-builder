@@ -41,7 +41,7 @@ function loadFiles(): SourceFile[] {
   const root = process.cwd();
   const files: SourceFile[] = [];
   for (const rel of ORDER) {
-    const abs = path.join(root, rel);
+    const abs = path.join(root, "java", rel.slice("java/".length));
     try {
       const code = fs.readFileSync(abs, "utf8");
       files.push({
